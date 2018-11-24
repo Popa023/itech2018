@@ -1,11 +1,24 @@
 package com.razvanpopescu.socialresp.models
 
-class UserModel{
-    var id : String? = null
-    var fullName : String? = null
-    var email : String? = null
-    var latitude : Double? = null
-    var longitude : Double? = null
-    var radius : Int? = null
-    var age : Int? = null
+class UserModel {
+
+    var id: Long? = null
+
+    var name: String? = null
+
+    var email: String? = null
+
+    var password: String? = null
+
+    var age: Int? = null
+
+    var gender: String? = null
+
+    var radius: Int? = null
+
+    var clat: String? = null
+
+    var clong: String? = null
+
+    var image: ByteArray? = null
 }

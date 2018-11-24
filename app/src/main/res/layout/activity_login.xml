@@ -34,7 +34,8 @@
             android:id="@+id/loginButton"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="46dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="100dp"
-            app:layout_constraintEnd_toStartOf="@+id/singinButton" android:layout_marginEnd="12dp"/>
+            app:layout_constraintEnd_toStartOf="@+id/singinButton" android:layout_marginEnd="12dp"
+            android:onClick="login"/>
     <Button
             android:text="Signin"
             android:layout_width="wrap_content"

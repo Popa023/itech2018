@@ -17,8 +17,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.razvanpopescu.socialresp.R.menu.menutest
 import kotlinx.android.synthetic.main.activity_maps.*
-import kotlinx.android.synthetic.main.activity_test.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -83,9 +83,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
             // Inflate the menu to use in the action bar
             val inflater = menuInflater
-            inflater.inflate(R.menu.menutest, menu)
+            inflater.inflate(menutest, menu)
+
+            //Check if user is logged in
+            if(AppConfig.token != null){
+                val login = menu.findItem(R.id.action_login)
+                login.isVisible = false
+                //userRegistered is boolean, pointing if the user has registered or not.
+                val profile = menu.findItem(R.id.action_profile)
+                profile.isVisible = true
+                return true
+            }
+
+            print(AppConfig.token)
             return super.onCreateOptionsMenu(menu)
         }
 
@@ -93,7 +106,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Handle presses on the action bar menu items
         when (item.itemId) {
             R.id.action_login -> {
-                var myIntent = Intent(this, TestActivity::class.java)
+                var myIntent = Intent(this, LoginActivity::class.java)
                 startActivity(myIntent)
                 return true
             }
